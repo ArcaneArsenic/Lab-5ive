@@ -37,15 +37,13 @@ namespace Ksu.Cis300.TextEditor
             string editStr = GetEditString(text, _lastText, isDel, loc, len); // The string deleted or inserted
             _lastText = text;
 
-            if (uxEditBuffer.Modified)
-            {//step 8, wtf????
-                _lastText = text;
-                r.Push(_lastText);
-                u.Push(_lastText);
-                uxUndo.Enabled = true;
-                uxRedo.Enabled = true;
-
-            }
+            if (isDel) { u.Push(isDel); }
+            u.Push(loc);
+            if (text == editStr) { u.Push(editStr); }
+            else { u.Push(text); }
+            u.Clear();
+            uxUndo.Enabled = false;
+            uxRedo.Enabled = false;
         }
 
         /// <summary>
@@ -143,7 +141,7 @@ namespace Ksu.Cis300.TextEditor
         }
 
         /// <summary>
-        /// Handles a Click event on the "Open . . ." file menu item.
+        /// Handles a Click event on the "Open . . ." file menu item. g
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
