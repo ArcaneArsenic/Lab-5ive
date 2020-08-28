@@ -114,7 +114,7 @@ namespace Ksu.Cis300.TextEditor
         /// </summary>
         /// <param name="editor">The TextBox to edit.</param>
         /// <param name="isDeletion">Indicates whether the edit is a deletion.</param>
-        /// <param name="loc">The location of the beginning of the edit.</param>
+        /// <param name="loc">The location of the beginning of the edit.</param> 
         /// <param name="text">The text to insert or delete.</param>
         private void DoEdit(TextBox editor, bool isDeletion, int loc, string text)
         {
